@@ -35,14 +35,17 @@ map.on("load", function () {
 		filterGroup.appendChild(label);
 
 		var item = document.createElement("div");
-		var key = document.createElement("span");
-		key.className = "legend-key";
-		key.style.backgroundColor = layers[i].paint["circle-color"];
-
+		if (layers[i].paint) {
+			var key = document.createElement("span");
+			key.className = "legend-key";
+			key.style.backgroundColor = layers[i].paint["circle-color"];
+			item.appendChild(key);
+		}
+	
 		var value = document.createElement("span");
 		value.innerHTML = layers[i].id;
 		value.style.cursor = "pointer";
-		item.appendChild(key);
+		
 		item.appendChild(value);
 		legend.appendChild(item);
 
