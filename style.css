@@ -78,7 +78,9 @@ body {
 		display: none;
 	}
 	.filter-group {
-		height: 300px;
+		height: 370px;
+    		overflow: hidden;
+    		top: 260px;
 		left: -300px;
 	}
 	.filter-slide {
