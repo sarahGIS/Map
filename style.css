@@ -208,6 +208,7 @@ body {
 }
 @media only screen and (max-width: 425px) {
 	.map-overlay {
+		top: 270px;
 		left: -250px;
 	}
 	.legend-slide {
