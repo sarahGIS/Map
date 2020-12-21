@@ -11,7 +11,6 @@ body {
 }
 
 .filter-group {
-	height: 300px;
 	font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-weight: 600;
 	position: absolute;
@@ -79,6 +78,7 @@ body {
 		display: none;
 	}
 	.filter-group {
+		height: 300px;
 		left: -300px;
 	}
 	.filter-slide {
@@ -92,6 +92,7 @@ body {
 
 @media (max-width: 425px) {
 	.filter-group {
+		height: 300px;
 		display: none;
 		top: 270px;
 		right: -150px;
@@ -116,7 +117,7 @@ body {
 .map-overlay {
 	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
 	background: rgba(255, 255, 255);
 	margin-right: 20px;
 	font-family: Arial, sans-serif;
