@@ -35,17 +35,14 @@ map.on("load", function () {
 		filterGroup.appendChild(label);
 
 		var item = document.createElement("div");
-		if (layers[i].paint) {
-			var key = document.createElement("span");
-			key.className = "legend-key";
-			key.style.backgroundColor = layers[i].paint["circle-color"];
-			item.appendChild(key);
-		}
-	
+		var key = document.createElement("span");
+		key.className = "legend-key";
+		key.style.backgroundColor = layers[i].paint["circle-color"];
+
 		var value = document.createElement("span");
 		value.innerHTML = layers[i].id;
 		value.style.cursor = "pointer";
-		
+		item.appendChild(key);
 		item.appendChild(value);
 		legend.appendChild(item);
 
@@ -228,19 +225,6 @@ filterSlider.addEventListener("click", () => {
 	filterSlider.classList.toggle("slider-arrow");
 });
 
-const directionSlider = document.querySelector("#direction-slider");
-let interactivity = false;
-directionSlider.addEventListener("click", () => {
-	const direction = document.querySelector(".mapboxgl-ctrl-directions");
-	direction.classList.toggle("direction-slide");
-	directionSlider.classList.toggle("slider-arrow");
-	if (interactivity) {
-		return (interactivity = false);
-	} else {
-		return (interactivity = true);
-	}
-});
-
 map.addControl(new mapboxgl.ScaleControl(), "bottom-right");
 
 let x = window.matchMedia("(max-width: 425px)");
@@ -260,7 +244,6 @@ myFunction(x);
 map.addControl(
 	new MapboxDirections({
 		accessToken: mapboxgl.accessToken,
-		interactive: interactivity,
 	}),
 	directionPosition
 );
