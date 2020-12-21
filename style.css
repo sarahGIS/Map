@@ -79,7 +79,7 @@ body {
 	}
 	.filter-group {
 		height: 370px;
-    		overflow: hidden;
+    		overflow: scroll;
     		top: 260px;
 		left: -300px;
 	}
