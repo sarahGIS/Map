@@ -211,44 +211,35 @@ function popUp(e) {
 		.addTo(map);
 }
 
-const legendSlider = document.querySelector("#legend-slider");
+const legendSlider = document.querySelector(".fa-sort");
+const filterSlider = document.querySelector(".fa-layer-group");
+const legend = document.querySelector("#legend");
+const filter = document.querySelector("#filter-group");
+
 legendSlider.addEventListener("click", () => {
-	const legend = document.querySelector("#legend");
 	legend.classList.toggle("legend-slide");
-	legendSlider.classList.toggle("slider-arrow");
+	legendSlider.classList.toggle("slider-group");
+	filter.classList.remove("filter-slide");
+	filterSlider.classList.remove("slider-group");
 });
 
-const filterSlider = document.querySelector("#filter-slider");
 filterSlider.addEventListener("click", () => {
-	const filter = document.querySelector("#filter-group");
 	filter.classList.toggle("filter-slide");
-	filterSlider.classList.toggle("slider-arrow");
+	filterSlider.classList.toggle("slider-group");
+	legend.classList.remove("legend-slide");
+	legendSlider.classList.remove("slider-group");
 });
 
 map.addControl(new mapboxgl.ScaleControl(), "bottom-right");
-
-let x = window.matchMedia("(max-width: 425px)");
-let directionPosition = "top-right";
-let mainController = "bottom-right";
-function myFunction(x) {
-	if (x.matches) {
-		directionPosition = "top-left";
-		mainController = "top-right";
-	} else {
-		directionPosition = "top-right";
-		mainController = "bottom-right";
-	}
-}
-myFunction(x);
-
 map.addControl(
 	new MapboxDirections({
 		accessToken: mapboxgl.accessToken,
+		unit: "metric",
 	}),
-	directionPosition
+	"top-right"
 );
 
-map.addControl(new mapboxgl.NavigationControl(), mainController);
+map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 map.addControl(
 	new mapboxgl.GeolocateControl({
 		positionOptions: {
@@ -256,5 +247,5 @@ map.addControl(
 		},
 		trackUserLocation: true,
 	}),
-	mainController
+	"bottom-right"
 );
