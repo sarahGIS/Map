@@ -151,6 +151,9 @@ body {
 .slider-group {
 	background-color: #0f5d70;
 }
+.mapboxgl-ctrl-geocoder input[placeholder="Search"] {
+	padding: 6px 45px !important;
+}
 
 @media (min-width: 425px) {
 	.map-overlay::-webkit-scrollbar {
