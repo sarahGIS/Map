@@ -11,13 +11,15 @@ body {
 }
 
 .filter-group {
+	width: 125px;
+	overflow: auto;
+	left: -400px;
 	font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-weight: 600;
 	position: absolute;
-	top: 40px;
+	top: 100px;
 	z-index: 1;
 	border-radius: 3px;
-	width: 125px;
 	color: #fff;
 	transition: all 1s ease-in-out;
 }
@@ -44,13 +46,13 @@ body {
 }
 
 .filter-group input[type="checkbox"] + label {
-	background-color: #3386c0;
+	background-color: #000000;
 	text-transform: capitalize;
 }
 
 .filter-group input[type="checkbox"] + label:hover,
 .filter-group input[type="checkbox"]:checked + label {
-	background-color: #4ea0da;
+	background-color: #3f3f3f;
 }
 
 .filter-group input[type="checkbox"]:checked + label:before {
@@ -58,95 +60,37 @@ body {
 	margin-right: 5px;
 }
 
-#filter-slider {
-	top: 230px;
-}
-#filter-slider:before {
-	content: " ";
-	height: 0;
-	position: absolute;
-	width: 0;
-	top: 3px;
+.filter-slide {
 	left: 10px;
-	border: 10px solid transparent;
-	transform: rotate(180deg);
-	border-right-color: grey;
-}
-
-@media (min-width: 426px) {
-	#legend-slider {
-		display: none;
-	}
-	.filter-group {
-		height: 370px;
-    		overflow: scroll;
-    		top: 260px;
-		left: -300px;
-	}
-	.filter-slide {
-		left: 10px;
-		transition: all 1s ease-in-out;
-	}
-	#filter-slider {
-		left: 10px;
-	}
+	transition: all 1s ease-in-out;
 }
 
 @media (max-width: 425px) {
 	.filter-group {
 		height: 300px;
-		display: none;
-		top: 270px;
-		right: -150px;
-		overflow: scroll;
-		z-index: 11;
-	}
-	.filter-slide {
-		display: block;
-		right: 0;
-		transition: all 1s ease-in-out;
-	}
-	#filter-slider {
-		top: 240px;
-		right: 10px;
-	}
-	#filter-slider:before {
-		transform: rotate(360deg);
-		left: -5px;
 	}
 }
 
 .map-overlay {
 	position: absolute;
-	top: 0;
-	left: 0;
-	background: rgba(255, 255, 255);
+	top: 100px;
+	left: -400px;
+	background-color: #3f3f3f;
+	color: white;
 	margin-right: 20px;
 	font-family: Arial, sans-serif;
 	overflow: scroll;
 	border-radius: 3px;
-	padding: 10px;
+	padding: 10px 0 0 10px;
 	box-shadow: 0 0px 5px rgba(0, 0, 0, 0.493);
 	line-height: 18px;
 	height: 200px;
-	width: 220px;
+	width: 250px;
 	margin-bottom: 40px;
 	transition: all 1s ease-in-out;
 }
 .map-overlay > div {
 	padding-top: 8px;
-}
-
-@media (min-width: 425px) {
-	.map-overlay::-webkit-scrollbar {
-		width: 3px;
-	}
-	.map-overlay::-webkit-scrollbar-thumb {
-		border-radius: 50px;
-	}
-	.map-overlay::-webkit-scrollbar-thumb:hover {
-		background-color: rgba(85, 85, 85, 0.76);
-	}
 }
 
 .legend-key {
@@ -158,35 +102,11 @@ body {
 	border-radius: 50%;
 }
 
-.slider {
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	background-color: white;
-	box-shadow: 0 0 3px black;
-	transition: all 1s ease-in-out;
-}
-
-#legend-slider:before {
-	content: " ";
-	height: 0;
-	position: absolute;
-	width: 0;
-	top: 3px;
-	left: -4px;
-	border: 10px solid transparent;
-	border-right-color: grey;
-}
 .legend-slide {
-	right: -10px;
+	left: 10px;
 	transition: all 1s ease-in-out;
 }
 
-.slider-arrow {
-	transform: rotate(180deg);
-	transition: all 1s ease-in-out;
-}
 .feature-container {
 	position: relative;
 	left: 25px;
@@ -209,24 +129,44 @@ body {
 	top: 63px;
 	left: 0;
 }
-@media only screen and (max-width: 425px) {
-	.map-overlay {
-		top: 270px;
-		left: -250px;
-	}
-	.legend-slide {
-		left: 0;
-	}
-	#legend-slider {
-		top: 240px;
-		left: 10px;
-	}
-	#legend-slider:before {
-		transform: rotate(180deg);
-		left: 10px;
-	}
 
-	.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
-		top: 0px;
+#sliders {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	background-color: #3bb2d0;
+	color: white;
+	text-align: center;
+}
+.fas {
+	font-size: 12px;
+	border: 1px solid white;
+	padding: 10px 5px 10px 5px;
+}
+.fas:hover {
+	background-color: #0f5d703b;
+}
+.slider-group {
+	background-color: #0f5d70;
+}
+
+@media (min-width: 425px) {
+	.map-overlay::-webkit-scrollbar {
+		width: 3px;
+	}
+	.map-overlay::-webkit-scrollbar-thumb {
+		border-radius: 50px;
+	}
+	.map-overlay::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(85, 85, 85, 0.76);
+	}
+	#sliders {
+		top: 15px;
+	}
+	.map-overlay,
+	.filter-group {
+		top: 200px;
 	}
 }
