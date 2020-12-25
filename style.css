@@ -11,7 +11,7 @@ body {
 }
 
 .filter-group {
-	width: 125px;
+	width: 210px;
 	overflow: auto;
 	left: -400px;
 	font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -151,6 +151,7 @@ body {
 .slider-group {
 	background-color: #0f5d70;
 }
+
 @media (min-width: 425px) {
 	.map-overlay::-webkit-scrollbar {
 		width: 3px;
