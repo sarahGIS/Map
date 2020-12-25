@@ -3,6 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://kit.fontawesome.com/9c6990c41c.js"
+			crossorigin="anonymous"
+		></script>
 		<script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
 		<link
 			href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css"
@@ -30,9 +34,17 @@
 		<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
 		<div id="map"></div>
-		<div class="slider" id="filter-slider"></div>
+		<div id="sliders">
+			<i class="fas fa-layer-group"
+				><br />
+				Layers
+			</i>
+			<i class="fas fa-sort"
+				><br />
+				Legend</i
+			>
+		</div>
 		<nav id="filter-group" class="filter-group"></nav>
-		<div class="slider" id="legend-slider"></div>
 		<div class="map-overlay" id="legend"></div>
 
 		<script src="main.js"></script>
